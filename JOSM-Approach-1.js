@@ -26,7 +26,7 @@ const OsmPrimitiveType = Java.type(
   "org.openstreetmap.josm.data.osm.OsmPrimitiveType"
 );
 console.clear();
-
+// List of coordinates with way IDs
 const coordinatesList = [
   [
     { latitude: 36.99063067649576, longitude: -85.90225171619728, way_id: 108707726 },
@@ -46,6 +46,7 @@ if (dataSet !== null) {
     var bridgeStartId = -1;
     for (var i = 0; i < coordinates.length; i++) {
       const coord = coordinates[i];
+      // Get the selected way by its ID
       const selectedWay = dataSet.getPrimitiveById(
         coord.way_id,
         OsmPrimitiveType.WAY
@@ -56,6 +57,7 @@ if (dataSet !== null) {
       const wayNodes = selectedWay.getNodes();
       let closestIndex = -1;
       let closestDistance = Infinity;
+      // Find the closest point on the way to the given coordinate
       for (let i = 0; i < wayNodes.size() - 1; i++) {
         const segmentStart = projection.latlon2eastNorth(
           wayNodes.get(i).getCoor()
@@ -70,15 +72,11 @@ if (dataSet !== null) {
         );
         const pointLatLon = projection.eastNorth2latlon(point);
         const distance = latLon.greatCircleDistance(pointLatLon);
-        // console.println(distance);
-        // console.println(closestDistance);
         if (distance < closestDistance) {
           closestDistance = distance;
           closestIndex = i;
           closestLatLon = pointLatLon;
         }
-        // console.println(closestDistance);
-        // console.println(closestIndex);
       }
       if (closestIndex !== -1) {
         const closestNode = new Node(closestLatLon);
@@ -96,7 +94,7 @@ if (dataSet !== null) {
         const newWay = new Way(selectedWay);
         newWay.setNodes(newWayNodes);
 
-        // Use ChangeCommand to update the way
+        // Add the new node to the data set and update the way
         const addCommand = new AddCommand(dataSet, closestNode);
         UndoRedoHandler.getInstance().add(addCommand);
         const changeCommand = new ChangeCommand(selectedWay, newWay);

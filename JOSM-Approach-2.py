@@ -5,7 +5,7 @@ from org.openstreetmap.josm.gui import MainApplication
 from java.util import ArrayList
 from javax.swing import JOptionPane
 import math
-
+# Function to calculate the distance from a point to a line segment
 def distance_to_segment(point, start, end):
     # Round coordinates to ensure consistent precision
     x, y = point.lon(), point.lat()
@@ -58,7 +58,7 @@ def interpolate_point(start, end, distance):
     lon = math.atan2(y, x)
     
     return LatLon(math.degrees(lat), math.degrees(lon))
-
+# Function to find the index of the closest node in a way to a given coordinate
 def find_closest_node(way, coord):
     min_distance = float('inf')
     closest_node_index = -1
@@ -70,7 +70,7 @@ def find_closest_node(way, coord):
             min_distance = distance
             closest_node_index = i
     return closest_node_index
-
+# Function to process a bridge point on a way and create new nodes for the bridge
 def process_bridge_point(way, coord, bridge_length):
     closest_node_index = find_closest_node(way, coord)
     if closest_node_index == -1:
@@ -163,7 +163,7 @@ if layer is None:
     exit()
 
 data_set = layer.getDataSet()
-
+# List of way IDs and bridge points (coordinate and length)
 bridgedata = [(108707726, [(LatLon(36.9905395374629, -85.9021257060234), 30.2)]), (16082992, [(LatLon(36.9879919499241, -85.9069943619548), 23.2)])]
 
 for way_id, bridge_points in bridgedata:
