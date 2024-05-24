@@ -1,4 +1,4 @@
-# editing-osm-for-truck-routing
+# edit-osm-using-JOSM-add-missing-bridges-for-truck-routing
 
 ## Introduction
 This repository contains the code to identify and add missing bridges in the USA to OpenStreetMap (OSM) using [National Bridge Inventory (NBI)](https://geodata.bts.gov/datasets/national-bridge-inventory/about) data. This includes finding the nearest point to line geometry, determining splitting coordinates based on bridge length, logically splitting OSM ways, and adding bridge-related tags to the split ways. The NBI data, being in the public domain, allows unrestricted public use and is compatible with OSM. The next phase of this project will focus on adding truck restriction information to the bridge data.
