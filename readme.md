@@ -11,8 +11,8 @@ This repository contains two approaches for integrating and accurately represent
 
 ### Approach 1
 
-This approach [[JOSM_Approach_1.js](JOSM_1_split_way_in_place.js)] uses the GraalJS scripting engine of the JOSM Scripting Plugin. It inserts new nodes at the closest points along existing ways to the provided bridge coordinates, splits the ways at these new nodes, and tags the identified way segment connecting the bridge start and end nodes as a "bridge" by adding the (`bridge=yes`) tag.
+This approach [[JOSM Approach 1 - split way in place](JOSM_1_split_way_in_place.js)] uses the GraalJS scripting engine of the JOSM Scripting Plugin. It inserts new nodes at the closest points along existing ways to the provided bridge coordinates, splits the ways at these new nodes, and tags the identified way segment connecting the bridge start and end nodes as a "bridge" by adding the (`bridge=yes`) tag.
 
 ### Approach 2
 
-This approach [[JOSM_Approach_2.py](JOSM_2_split_way_remove_old_way.py)]  utilizes the Jython engine of the JOSM scripting plugin. It retrieves the active data layer and edit dataset from JOSM, then splits existing ways at bridge locations, adds bridge tags (`bridge=yes`), and removes the old way. It accurately represents missing bridges by interpolating the start and end points of the bridge segments along the existing way segments.
+This approach [[JOSM Approach 2 - split way and remove old way.py](JOSM_2_split_way_remove_old_way.py)]  utilizes the Jython engine of the JOSM scripting plugin. It retrieves the active data layer and edit dataset from JOSM, then splits existing ways at bridge locations, adds bridge tags (`bridge=yes`), and removes the old way. It accurately represents missing bridges by interpolating the start and end points of the bridge segments along the existing way segments.
