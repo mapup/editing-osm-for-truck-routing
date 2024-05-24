@@ -11,10 +11,8 @@ This repository contains two approaches for integrating and accurately represent
 
 ### Approach 1
 
-This approach uses the GraalJS scripting engine of the JOSM Scripting Plugin. It inserts new nodes at the closest points along existing ways to the provided bridge coordinates, splits the ways at these new nodes, and tags the identified way segment connecting the bridge start and end nodes as a "bridge" by adding the (`bridge=yes`) tag.
+This approach [[JOSM_Approach_1.js](JOSM_Approach_1.js)] uses the GraalJS scripting engine of the JOSM Scripting Plugin. It inserts new nodes at the closest points along existing ways to the provided bridge coordinates, splits the ways at these new nodes, and tags the identified way segment connecting the bridge start and end nodes as a "bridge" by adding the (`bridge=yes`) tag.
 
 ### Approach 2
 
-This approach utilizes the Jython engine of the JOSM scripting plugin. It retrieves the active data layer and edit dataset from JOSM, then splits existing ways at bridge locations, adds bridge tags (`bridge=yes`), and removes the old way. It accurately represents missing bridges by interpolating the start and end points of the bridge segments along the existing way segments.
-
-Both approaches aim to enhance the accuracy and detail of bridge representations in OSM data, automating a task that would otherwise be time-consuming and prone to human error if performed manually.
+This approach [[JOSM_Approach_2.py](JOSM_Approach_2.py)]  utilizes the Jython engine of the JOSM scripting plugin. It retrieves the active data layer and edit dataset from JOSM, then splits existing ways at bridge locations, adds bridge tags (`bridge=yes`), and removes the old way. It accurately represents missing bridges by interpolating the start and end points of the bridge segments along the existing way segments.
