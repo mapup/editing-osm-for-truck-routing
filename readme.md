@@ -16,3 +16,4 @@ This approach [[JOSM Approach 1 - split way in place](JOSM_1_split_way_in_place.
 ### Approach 2
 
 This approach [[JOSM Approach 2 - split way and remove old way.py](JOSM_2_split_way_remove_old_way.py)]  utilizes the Jython engine of the JOSM scripting plugin. It retrieves the active data layer and edit dataset from JOSM, then splits existing ways at bridge locations, adds bridge tags (`bridge=yes`), and removes the old way. It accurately represents missing bridges by interpolating the start and end points of the bridge segments along the existing way segments.
+
