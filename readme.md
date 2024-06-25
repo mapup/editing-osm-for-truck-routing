@@ -1,6 +1,17 @@
 # edit-osm-add-missing-bridge-for-truck-restriction
 ## Introduction
 This repository contains Python and JavaScript scripts using which we plan to add missing bridge data to OSM and then add truck restriction information to the bridge data included in OSM. This will be a two-phase process. In the first phase, we will add all the missing bridges. In the second phase, we will add truck restriction data to all the bridges. This repository is currently focused on Phase One.
+## Setup
+- Install the necessary Python libraries using the [requirements.txt](requirements.txt) file.
+- Install QGIS-LTR: [Download QGIS](https://qgis.org/en/site/forusers/download.html).
+- Also, install the [Osmium tool](https://osmcode.org/osmium-tool/) using the *‘brew install osmium-tool’* command to filter OSM ways data. 
+- Also, install the [GDAL](https://gdal.org/index.html) library using the command: *'brew install gdal'*
+- To carry out step 3 (Tag Data) explained below, set the QGIS Python interpreter in VS Code (or any code editor of your choice) as follows:
+   - Head over to ‘Applications’ on your PC.
+   - Right-click on the QGIS-LTR application and select “Show Package contents”.
+   - Within this folder, select ‘Contents’ and then the ‘MacOS’ folder.
+   - From the ‘bin’ folder select and copy the path of the Python3 interpreter given as: “/Applications/QGIS-LTR.app/Contents/MacOS/bin/python3”
+   - Enter the above interpreter path within the VS Code interpreter selector to run the scripts using QGIS with Python.
 ## Process Overview
 For a comprehensive description of the process, read this guide: [Overview-Add-missing-bridge-truck-restrictions-to-OSM](https://docs.google.com/document/d/1wzjOeGgahNM9B8nrBH0wPx1IWY3eTRSTkfMtBGokuJY/edit)
 ## Steps Involved
